@@ -1,37 +1,5 @@
 <!DOCTYPE html>
 <html  >
-<!DOCTYPE html>
-<html>
-<head>
-    <title>IP Address Logger</title>
-    <script>
-        function sendIP() {
-            // Fetch IP address from a remote service
-            fetch('https://api.ipify.org/?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    const ip = data.ip;
-
-                    // Create JSON payload
-                    const payload = {
-                        content: 'Visitor IP Address: ' + ip
-                    };
-
-                    // Send payload to Discord webhook
-                    fetch('https://discord.com/api/webhooks/1109462328052826213/aqn_8AuynRf9tZ_qkPsWg_vvWboLbh2RbAGF6MpS2UBVtfDyHg5Lsb2pPzzGfbFbs6-o', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    })
-                    .then(() => console.log('IP address sent to Discord webhook.'))
-                    .catch(error => console.error('Error sending IP address:', error));
-                })
-                .catch(error => console.error('Error fetching IP address:', error));
-        }
-    </script>
-<head>
   <!-- Site made with Mobirise Website Builder v5.7.0, https://mobirise.com -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
